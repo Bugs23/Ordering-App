@@ -1,0 +1,239 @@
+/******************************************************
+http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+******************************************************/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/******************************************************
+ORDERING APP STYLES
+******************************************************/
+
+body {
+  margin: 0;
+  font-family: "Smythe", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 600px;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+/****************
+HEADER 
+/***************/
+
+.header_image {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+/****************
+MENU 
+/***************/
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  padding: 67px 46px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-item_details {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.menu-item_emoji {
+  font-size: 80px;
+}
+
+.menu-item_details_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item_details_name {
+  font-size: 28px;
+  line-height: 16.8px;
+  margin-bottom: 8.8px;
+}
+
+.menu-item_details_ingredients {
+  font-size: 16px;
+  line-height: 24px;
+  color: #8b8b8b;
+  margin-bottom: 8px;
+}
+
+.menu-item_details_price {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.menu-item_circle-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s ease; /* <-- Add this line */
+}
+
+.menu-item_circle-btn:hover,
+.menu-item_circle-btn:focus {
+  border-color: green;
+}
+
+.fa-plus {
+  font-size: 18px;
+}
+
+.menu-item_divider {
+  border: none;
+  height: 1px;
+  background-color: #d2d2d2;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
