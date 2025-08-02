@@ -1,20 +1,26 @@
 import { menuArray } from "./data/data";
 
-const container = document.getElementById("container");
-let orders = [];
+// Initialize an empty array to hold the item added to the cart
+let cartItems = [];
 
 document.addEventListener("click", (e) => {
-  const cartBtn = e.target.closest("[data-add-to-cart]");
-  if (cartBtn) {
-    addToOrder(cartBtn.dataset.addToCart);
+  if (e.target.dataset.addToCart) {
+    addItemToCart(e.target.dataset.addToCart);
+  } else if (e.target.dataset.removeFromCart) {
+    removeItemFromCart(e.target.dataset.removeFromCart);
   }
 });
 
-function addToOrder(itemId) {
+function addItemToCart(itemId) {
   const item = menuArray.find((item) => item.id === itemId);
 
-  orders.push(item);
-  getCart(orders);
+  cartItems.push(item);
+  render();
+}
+
+function removeItemFromCart(itemId) {
+  cartItems = cartItems.filter((item) => item.id !== itemId);
+
   render();
 }
 
@@ -36,20 +42,20 @@ function getMenu() {
     .join("");
 }
 
-function getCart(orders) {
+function getCart(cartItems) {
   // Don’t show the cart if it's empty
-  if (orders.length === 0) {
+  if (cartItems.length === 0) {
     return "";
   }
 
   // Generate HTML for each item in the cart
-  let cartItemsHtml = orders
+  let cartItemsHtml = cartItems
     .map((item) => {
       return `
         <div class="order-summary__item">
           <div class="order-summary__item-info">
             <span class="order-summary__item-name item-label">${item.name}</span>
-            <button class="order-summary__item-remove hover-effect">
+            <button class="order-summary__item-remove hover-effect" data-remove-from-cart="${item.id}" aria-label="Remove ${item.name} from cart">
               remove
             </button>
           </div>
@@ -60,7 +66,7 @@ function getCart(orders) {
     .join("");
 
   // Calculate the total price of the order
-  const total = orders.reduce(
+  const total = cartItems.reduce(
     (total, currentItem) => total + currentItem.price,
     0
   );
@@ -86,7 +92,7 @@ function getCart(orders) {
 
 function render() {
   document.getElementById("menu").innerHTML = getMenu();
-  document.getElementById("order-summary").innerHTML = getCart(orders);
+  document.getElementById("order-summary").innerHTML = getCart(cartItems);
 }
 
 render();
