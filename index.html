@@ -23,8 +23,25 @@
       <header class="header">
         <img class="header__image" src="/hero-bg.jpg" alt="Hero Image" />
       </header>
-      <div id="menu" class="menu"></div>
-      <div id="order-summary" class="order-summary"></div>
+      <main class="main-content">
+        <div id="menu" class="menu"></div>
+        <div id="order-summary" class="order-summary"></div>
+        <div id="order-complete-message" class="order-complete-message"></div>
+      </main>
+      <div id="complete-order-modal" class="modal-overlay modal-hidden">
+        <div class="complete-order-modal">
+          <form class="complete-order-modal__form">
+            <h2 class="complete-order-modal__form-title">Enter card details</h2>
+            <input class="complete-order-modal__form-input" type="text" name="name" placeholder="Enter your name" required />
+            <input class="complete-order-modal__form-input" type="text" name="cardNumber" inputmode="numeric" placeholder="Enter card number" required />
+            <input class="complete-order-modal__form-input" type="text" name="cvv" inputmode="numeric" placeholder="Enter CVV" required />
+            <button type="submit" class="complete-order-modal__form-button primary-button">Pay</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+      </form>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
